@@ -1,4 +1,5 @@
 import torch
+from math import inf
 
 '''
 Author : Luke Y. Prince
@@ -124,8 +125,6 @@ class SoftDTWLossFunction(torch.autograd.Function):
         D = torch.zeros(D_dims).to(ctx.device)
         R = torch.ones(R_dims).to(ctx.device)*inf
         
-        from math import inf
-        
         # Initialize edges of Soft-DTW Gram Matrix
         R[:, 0, 0]  = 0
         
@@ -172,7 +171,6 @@ class SoftDTWLossFunction(torch.autograd.Function):
         E = torch.zeros(E_dims).to(ctx.device)
         E[:, -1, -1] = 1
         
-        from math import inf
         ctx.R[torch.isinf(ctx.R)] = -inf
         ctx.R[:,  -1,  -1] = ctx.R[:, -2, -2]
         
