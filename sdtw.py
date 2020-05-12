@@ -1,3 +1,5 @@
+import torch
+
 '''
 Author : Luke Y. Prince
 email  : luke.prince@utoronto.ca
