@@ -284,8 +284,8 @@ class MatrixDiagonalIndexIterator:
             self.j = [self.k]
             self.k+=1
         
-        if bandwidth:
-            i_scb, j_scb = sakoe_chiba_band(self.i.copy(), self.j.copy(), self.m, self.n, bandwidth)
+        if self.bandwidth:
+            i_scb, j_scb = sakoe_chiba_band(self.i.copy(), self.j.copy(), self.m, self.n, self.bandwidth)
             return i_scb, j_scb
         else:
             return self.i.copy(), self.j.copy()
